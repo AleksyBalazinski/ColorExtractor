@@ -1,5 +1,3 @@
-using System.Diagnostics;
-
 namespace ColorExtractor
 {
     public partial class Form1 : Form
@@ -28,7 +26,8 @@ namespace ColorExtractor
         {
             OpenFileDialog ofd = new()
             {
-                Filter = "Image files (.jpg, .png)|*.jpg;*.png"
+                Filter = "Image files (.jpg, .png)|*.jpg;*.png",
+                InitialDirectory = Path.GetFullPath(Path.Combine(Environment.CurrentDirectory, @"..\..\..\images"))
             };
             if (ofd.ShowDialog() == DialogResult.OK)
             {
@@ -50,7 +49,7 @@ namespace ColorExtractor
                 labelRes2.Visible = true; labelRes2.Text = "Cb";
                 labelRes3.Visible = true; labelRes3.Text = "Cr";
 
-                Painter.Paint(mainImageBitmap, bitmap1, bitmap2, bitmap3, new YCbCrSeparator(), 
+                Painter.Paint(mainImageBitmap, bitmap1, bitmap2, bitmap3, new YCbCrSeparator(),
                     pictureBoxMainImage.Image.Size.Height, pictureBoxMainImage.Image.Size.Width,
                     checkBoxGrayScale.Checked == true ? PresentationMode.GrayScale : PresentationMode.Color);
                 pictureBox1.Invalidate();
@@ -63,7 +62,7 @@ namespace ColorExtractor
                 labelRes2.Visible = true; labelRes2.Text = "S";
                 labelRes3.Visible = true; labelRes3.Text = "V";
 
-                Painter.Paint(mainImageBitmap, bitmap1, bitmap2, bitmap3, new HSVSeparator(), 
+                Painter.Paint(mainImageBitmap, bitmap1, bitmap2, bitmap3, new HSVSeparator(),
                     pictureBoxMainImage.Image.Size.Height, pictureBoxMainImage.Image.Size.Width,
                     checkBoxGrayScale.Checked == true ? PresentationMode.GrayScale : PresentationMode.Color);
                 pictureBox1.Invalidate();
@@ -121,7 +120,7 @@ namespace ColorExtractor
 
                 comboBoxIlluminant.SelectedIndex = 0;
             }
-            if(comboBoxColorProfile.SelectedIndex == 1) // Adobe RGB
+            if (comboBoxColorProfile.SelectedIndex == 1) // Adobe RGB
             {
                 DisableNumericInput();
 
@@ -203,7 +202,7 @@ namespace ColorExtractor
 
         private void comboBoxIlluminant_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if(comboBoxIlluminant.SelectedIndex == 0) // D65
+            if (comboBoxIlluminant.SelectedIndex == 0) // D65
             {
                 numericUpDownWhiteX.Value = Convert.ToDecimal(0.31271); // D65
                 numericUpDownWhiteY.Value = Convert.ToDecimal(0.32902);
@@ -211,7 +210,7 @@ namespace ColorExtractor
                 numericUpDownWhiteX.Enabled = false;
                 numericUpDownWhiteY.Enabled = false;
             }
-            if(comboBoxIlluminant.SelectedIndex == 1) // D50
+            if (comboBoxIlluminant.SelectedIndex == 1) // D50
             {
                 numericUpDownWhiteX.Value = Convert.ToDecimal(0.34567); // D50
                 numericUpDownWhiteY.Value = Convert.ToDecimal(0.35850);
@@ -219,7 +218,7 @@ namespace ColorExtractor
                 numericUpDownWhiteX.Enabled = false;
                 numericUpDownWhiteY.Enabled = false;
             }
-            if(comboBoxIlluminant.SelectedIndex == 2) // E
+            if (comboBoxIlluminant.SelectedIndex == 2) // E
             {
                 numericUpDownWhiteX.Value = Convert.ToDecimal(0.33333); // E
                 numericUpDownWhiteY.Value = Convert.ToDecimal(0.33333);

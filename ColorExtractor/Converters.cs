@@ -1,12 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace ColorExtractor
+﻿namespace ColorExtractor
 {
     internal static class Converters
     {
@@ -35,11 +27,6 @@ namespace ColorExtractor
             double a = 500 * (px - py);
 
             double b = 200 * (py - pz);
-
-            if (a != a)
-                throw new Exception("NaN");
-            if (b != b)
-                throw new Exception("NaN");
 
             return (L, a, b);
         }

@@ -1,6 +1,4 @@
-﻿using System.Diagnostics;
-
-namespace ColorExtractor
+﻿namespace ColorExtractor
 {
     internal class LabSeparator : ISeparator
     {
@@ -23,7 +21,7 @@ namespace ColorExtractor
             {
                 throw new Exception("something terrible happend");
             }
-                
+
             RGB channel1 = new((int)(LCropped * 255 / 100.0), (int)(LCropped * 255 / 100.0), (int)(LCropped * 255 / 100.0));
             double aCropped = a + 128;
             if (aCropped < 0)
@@ -34,7 +32,7 @@ namespace ColorExtractor
             double bCropped = b + 128;
             if (bCropped < 0)
                 bCropped = 0;
-            if(bCropped > 255)
+            if (bCropped > 255)
                 bCropped = 255;
 
             RGB channel2;
@@ -44,7 +42,7 @@ namespace ColorExtractor
                 channel2 = Utility.Interpolate(aCropped / 255, new RGB(0, 255, 127), new RGB(255, 0, 127));
                 channel3 = Utility.Interpolate(bCropped / 255, new RGB(0, 127, 255), new RGB(255, 127, 0));
             }
-            else if(mode == PresentationMode.GrayScale)
+            else if (mode == PresentationMode.GrayScale)
             {
                 channel2 = new((int)aCropped, (int)aCropped, (int)aCropped);
                 channel3 = new((int)bCropped, (int)bCropped, (int)bCropped);
