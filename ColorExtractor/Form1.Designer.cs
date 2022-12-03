@@ -58,12 +58,12 @@
             this.mainImagePanel = new System.Windows.Forms.Panel();
             this.pictureBoxMainImage = new System.Windows.Forms.PictureBox();
             this.resultsPanel = new System.Windows.Forms.Panel();
+            this.labelRes3 = new System.Windows.Forms.Label();
+            this.labelRes2 = new System.Windows.Forms.Label();
+            this.labelRes1 = new System.Windows.Forms.Label();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.labelRes1 = new System.Windows.Forms.Label();
-            this.labelRes2 = new System.Windows.Forms.Label();
-            this.labelRes3 = new System.Windows.Forms.Label();
             this.contolsPanel.SuspendLayout();
             this.groupBoxLabSettings.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownGamma)).BeginInit();
@@ -100,9 +100,9 @@
             this.checkBoxGrayScale.AutoSize = true;
             this.checkBoxGrayScale.Location = new System.Drawing.Point(142, 119);
             this.checkBoxGrayScale.Name = "checkBoxGrayScale";
-            this.checkBoxGrayScale.Size = new System.Drawing.Size(78, 19);
+            this.checkBoxGrayScale.Size = new System.Drawing.Size(75, 19);
             this.checkBoxGrayScale.TabIndex = 4;
-            this.checkBoxGrayScale.Text = "gray scale";
+            this.checkBoxGrayScale.Text = "grayscale";
             this.checkBoxGrayScale.UseVisualStyleBackColor = true;
             // 
             // buttonSeparateChannels
@@ -201,7 +201,7 @@
             0,
             0,
             65536});
-            this.numericUpDownGamma.Location = new System.Drawing.Point(90, 286);
+            this.numericUpDownGamma.Location = new System.Drawing.Point(89, 280);
             this.numericUpDownGamma.Name = "numericUpDownGamma";
             this.numericUpDownGamma.Size = new System.Drawing.Size(62, 23);
             this.numericUpDownGamma.TabIndex = 16;
@@ -214,7 +214,7 @@
             0,
             0,
             65536});
-            this.numericUpDownWhiteY.Location = new System.Drawing.Point(161, 248);
+            this.numericUpDownWhiteY.Location = new System.Drawing.Point(161, 242);
             this.numericUpDownWhiteY.Name = "numericUpDownWhiteY";
             this.numericUpDownWhiteY.Size = new System.Drawing.Size(62, 23);
             this.numericUpDownWhiteY.TabIndex = 9;
@@ -222,7 +222,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(9, 288);
+            this.label8.Location = new System.Drawing.Point(9, 282);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(49, 15);
             this.label8.TabIndex = 15;
@@ -288,7 +288,7 @@
             0,
             0,
             65536});
-            this.numericUpDownWhiteX.Location = new System.Drawing.Point(90, 248);
+            this.numericUpDownWhiteX.Location = new System.Drawing.Point(90, 242);
             this.numericUpDownWhiteX.Name = "numericUpDownWhiteX";
             this.numericUpDownWhiteX.Size = new System.Drawing.Size(61, 23);
             this.numericUpDownWhiteX.TabIndex = 10;
@@ -322,7 +322,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(9, 250);
+            this.label7.Location = new System.Drawing.Point(6, 244);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(69, 15);
             this.label7.TabIndex = 6;
@@ -434,6 +434,33 @@
             this.resultsPanel.Size = new System.Drawing.Size(632, 235);
             this.resultsPanel.TabIndex = 2;
             // 
+            // labelRes3
+            // 
+            this.labelRes3.AutoSize = true;
+            this.labelRes3.Location = new System.Drawing.Point(412, 4);
+            this.labelRes3.Name = "labelRes3";
+            this.labelRes3.Size = new System.Drawing.Size(56, 15);
+            this.labelRes3.TabIndex = 5;
+            this.labelRes3.Text = "labelRes3";
+            // 
+            // labelRes2
+            // 
+            this.labelRes2.AutoSize = true;
+            this.labelRes2.Location = new System.Drawing.Point(206, 5);
+            this.labelRes2.Name = "labelRes2";
+            this.labelRes2.Size = new System.Drawing.Size(56, 15);
+            this.labelRes2.TabIndex = 4;
+            this.labelRes2.Text = "labelRes2";
+            // 
+            // labelRes1
+            // 
+            this.labelRes1.AutoSize = true;
+            this.labelRes1.Location = new System.Drawing.Point(3, 4);
+            this.labelRes1.Name = "labelRes1";
+            this.labelRes1.Size = new System.Drawing.Size(56, 15);
+            this.labelRes1.TabIndex = 3;
+            this.labelRes1.Text = "labelRes1";
+            // 
             // pictureBox3
             // 
             this.pictureBox3.Location = new System.Drawing.Point(412, 23);
@@ -457,33 +484,6 @@
             this.pictureBox1.Size = new System.Drawing.Size(200, 200);
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
-            // 
-            // labelRes1
-            // 
-            this.labelRes1.AutoSize = true;
-            this.labelRes1.Location = new System.Drawing.Point(3, 4);
-            this.labelRes1.Name = "labelRes1";
-            this.labelRes1.Size = new System.Drawing.Size(56, 15);
-            this.labelRes1.TabIndex = 3;
-            this.labelRes1.Text = "labelRes1";
-            // 
-            // labelRes2
-            // 
-            this.labelRes2.AutoSize = true;
-            this.labelRes2.Location = new System.Drawing.Point(206, 5);
-            this.labelRes2.Name = "labelRes2";
-            this.labelRes2.Size = new System.Drawing.Size(56, 15);
-            this.labelRes2.TabIndex = 4;
-            this.labelRes2.Text = "labelRes2";
-            // 
-            // labelRes3
-            // 
-            this.labelRes3.AutoSize = true;
-            this.labelRes3.Location = new System.Drawing.Point(412, 4);
-            this.labelRes3.Name = "labelRes3";
-            this.labelRes3.Size = new System.Drawing.Size(56, 15);
-            this.labelRes3.TabIndex = 5;
-            this.labelRes3.Text = "labelRes3";
             // 
             // Form1
             // 
