@@ -70,7 +70,7 @@
             else if (v == G)
                 h = 2 + (B - R) / c;
             else if (v == B)
-                h = 4 + (B - G) / c;
+                h = 4 + (R - G) / c;
             else
                 h = 0; // silence warnings
 

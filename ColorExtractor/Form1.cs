@@ -9,7 +9,6 @@ namespace ColorExtractor
         public Form1()
         {
             InitializeComponent();
-            //mainImageBitmap = new(pictureBoxMainImage.Width, pictureBoxMainImage.Height);
             bitmap1 = new(pictureBox1.Width, pictureBox1.Height);
             pictureBox1.Image = bitmap1;
             bitmap2 = new(pictureBox2.Width, pictureBox2.Height);
@@ -226,6 +225,90 @@ namespace ColorExtractor
                 numericUpDownWhiteX.Enabled = false;
                 numericUpDownWhiteY.Enabled = false;
             }
+        }
+
+        private void buttonGenerateHSV_Click(object sender, EventArgs e)
+        {
+            mainImageBitmap = new(pictureBoxMainImage.Width, pictureBoxMainImage.Height);
+            GenerateHSV(mainImageBitmap, trackBarV.Value / 10.0);
+
+            pictureBoxMainImage.Image = mainImageBitmap;
+            pictureBoxMainImage.Invalidate();
+        }
+
+        private void GenerateHSV(Bitmap bitmap, double V)
+        {
+            int width = bitmap.Width;
+            int height = bitmap.Height;
+            using (Graphics gfx = Graphics.FromImage(bitmap))
+            using (SolidBrush brush = new SolidBrush(Color.White))
+            {
+                gfx.FillRectangle(brush, 0, 0, width, height);
+            }
+
+            int numRectangles = 16;
+            int rectWidth = width / numRectangles;
+
+            int margin = 5;
+            int rectHeight = height - 2 * margin;
+            int dist = 2; // between rectangles
+
+            for (int rectId = 0; rectId < numRectangles; rectId++)
+            {
+                double S = (double)rectId / (numRectangles - 1);
+                for (int x = rectId * rectWidth + dist; x < (rectId + 1) * rectWidth; x++)
+                {
+                    for (int y = 5; y < height - 5; y++)
+                    {
+                        double H = ((double)y / height) * 360.0;
+                        (int r, int g, int b) = HSV2RGB(H, S, V);
+                        bitmap.SetPixel(x, y, Color.FromArgb(r, g, b));
+                    }
+                }
+            }
+        }
+
+        // H in [0,360), S in [0,1], V in [0,1]
+        private (int, int, int) HSV2RGB(double H, double S, double V)
+        {
+            double C = V * S;
+            double X = C * (1 - Math.Abs((H / 60) % 2 - 1));
+            double m = V - C;
+
+            double R, G, B;
+            if (H < 60)
+            {
+                R = C; G = X; B = 0;
+            }
+            else if (H < 120)
+            {
+                R = X; G = C; B = 0;
+            }
+            else if (H < 180)
+            {
+                R = 0; G = C; B = X;
+            }
+            else if (H < 240)
+            {
+                R = 0; G = X; B = C;
+            }
+            else if (H < 300)
+            {
+                R = X; G = 0; B = C;
+            }
+            else
+            {
+                R = C; G = 0; B = X;
+            }
+
+            return ((int)((R + m) * 255),
+                (int)((G + m) * 255),
+                (int)((B + m) * 255));
+        }
+
+        private void trackBarV_Scroll(object sender, EventArgs e)
+        {
+
         }
     }
 }
