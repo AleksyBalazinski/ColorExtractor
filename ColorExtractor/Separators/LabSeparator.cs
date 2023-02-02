@@ -1,4 +1,4 @@
-﻿namespace ColorExtractor
+﻿namespace ColorExtractor.Separators
 {
     internal class LabSeparator : ISeparator
     {
@@ -19,7 +19,7 @@
             int LCropped = (int)L;
             if (LCropped > 100)
             {
-                throw new Exception("something terrible happend");
+                throw new Exception("something terrible happened");
             }
 
             RGB channel1 = new((int)(LCropped * 255 / 100.0), (int)(LCropped * 255 / 100.0), (int)(LCropped * 255 / 100.0));
