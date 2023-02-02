@@ -48,7 +48,7 @@ namespace ColorExtractor
                 labelRes2.Visible = true; labelRes2.Text = "Cb";
                 labelRes3.Visible = true; labelRes3.Text = "Cr";
 
-                Painter.Paint(mainImageBitmap, bitmap1, bitmap2, bitmap3, new YCbCrSeparator(),
+                Painter.Paint(mainImageBitmap, bitmap1, bitmap2, bitmap3, new Separators.YCbCrSeparator(),
                     pictureBoxMainImage.Image.Size.Height, pictureBoxMainImage.Image.Size.Width,
                     checkBoxGrayScale.Checked == true ? PresentationMode.GrayScale : PresentationMode.Color);
                 pictureBox1.Invalidate();
@@ -61,7 +61,7 @@ namespace ColorExtractor
                 labelRes2.Visible = true; labelRes2.Text = "S";
                 labelRes3.Visible = true; labelRes3.Text = "V";
 
-                Painter.Paint(mainImageBitmap, bitmap1, bitmap2, bitmap3, new HSVSeparator(),
+                Painter.Paint(mainImageBitmap, bitmap1, bitmap2, bitmap3, new Separators.HSVSeparator(),
                     pictureBoxMainImage.Image.Size.Height, pictureBoxMainImage.Image.Size.Width,
                     checkBoxGrayScale.Checked == true ? PresentationMode.GrayScale : PresentationMode.Color);
                 pictureBox1.Invalidate();
@@ -91,7 +91,7 @@ namespace ColorExtractor
                     whitePointX, whitePointY,
                     gamma);
 
-                Painter.Paint(mainImageBitmap, bitmap1, bitmap2, bitmap3, new LabSeparator(colorSpace),
+                Painter.Paint(mainImageBitmap, bitmap1, bitmap2, bitmap3, new Separators.LabSeparator(colorSpace),
                     pictureBoxMainImage.Image.Size.Height, pictureBoxMainImage.Image.Size.Width,
                     checkBoxGrayScale.Checked == true ? PresentationMode.GrayScale : PresentationMode.Color);
                 pictureBox1.Invalidate();

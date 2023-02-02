@@ -1,4 +1,4 @@
-﻿namespace ColorExtractor
+﻿namespace ColorExtractor.Separators
 {
     internal static class Converters
     {
@@ -20,9 +20,9 @@
             else
                 L = 903.3 * Y / Yr;
 
-            double px = X / Xr >= 0 ? Math.Pow(X / Xr, 1.0 / 3) : (-1) * Math.Pow((-1) * X / Xr, 1.0 / 3);
-            double py = Y / Yr >= 0 ? Math.Pow(Y / Yr, 1.0 / 3) : (-1) * Math.Pow((-1) * Y / Yr, 1.0 / 3);
-            double pz = Z / Zr >= 0 ? Math.Pow(Z / Zr, 1.0 / 3) : (-1) * Math.Pow((-1) * Z / Zr, 1.0 / 3);
+            double px = X / Xr >= 0 ? Math.Pow(X / Xr, 1.0 / 3) : -1 * Math.Pow(-1 * X / Xr, 1.0 / 3);
+            double py = Y / Yr >= 0 ? Math.Pow(Y / Yr, 1.0 / 3) : -1 * Math.Pow(-1 * Y / Yr, 1.0 / 3);
+            double pz = Z / Zr >= 0 ? Math.Pow(Z / Zr, 1.0 / 3) : -1 * Math.Pow(-1 * Z / Zr, 1.0 / 3);
 
             double a = 500 * (px - py);
 

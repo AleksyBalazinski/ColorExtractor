@@ -1,4 +1,4 @@
-﻿namespace ColorExtractor
+﻿namespace ColorExtractor.Separators
 {
     internal interface ISeparator
     {

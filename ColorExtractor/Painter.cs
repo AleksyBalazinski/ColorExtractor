@@ -1,4 +1,6 @@
-﻿namespace ColorExtractor
+﻿using ColorExtractor.Separators;
+
+namespace ColorExtractor
 {
     internal class Painter
     {
